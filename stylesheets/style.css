@@ -1,3 +1,19 @@
 body {
     background: #eef;
 }
+
+// p.red {
+//	background:#500000 ;
+//	}
+	
+// p.blue {
+//	background:#00CC99 ;
+//	}
+
+p.textColor {
+	color:red ;
+	}
+	
+p.textColor2 {
+	color:blue ;
+	}
