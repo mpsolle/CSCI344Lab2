@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$("#search").click(function(){
 		$("#search_bar").fadeOut();
-//		$("#tweets").fadeIn();
+		$("#tweets").fadeIn();
 	main();
 	});
 });
@@ -16,15 +16,16 @@ function main () {
 		{buffer:true, bufferTimeout:750}
 		); 
 		
-//	$("#searchAgain").click(function(){
-//		$("#search_bar").fadeIn();
-//		$("#tweets").remove();
-//		s.stop();
-//	});
-	
+	$("#searchAgain").click(function(){
+		$("#search_bar").fadeIn();
+		$("#tweets").remove();
+		s.stop();
+	});
+	var term_count = 0;
 	var t_count = 0;
 	var count = 0;
 	var tweetNumber = [] ;
+	var statCount = [] ;
 
 s.register(function(tweet){ 
 
@@ -46,7 +47,8 @@ s.register(function(tweet){
 	}
 
 	var tweetReceived = $("<p class = '"+color+"'>"+profile_image+"&nbsp;"+user_name+"&nbsp;"+day+"&nbsp"+time+"<br />"+tweet.text+"</p>");
-	
+	var tweetStats = $("<p> love =" +term_count+ " </p>");
+
 	    //6. Show a maximum of 10 tweets at a time (remove old tweets from the dom) (easiest way is to use arrays to create a cycle)
 		if (tweetNumber.length >= 10) { //checks number of tweets against array size
 			var p = tweetNumber.shift();  //moves to other end of array
@@ -55,29 +57,39 @@ s.register(function(tweet){
 			});
 		};
 		
+		if (statCount.length >= 1) { //checks number of tweets against array size
+			var d = statCount.shift();  //moves to other end of array
+			d.fadeOut(500, function() {  //fades out element of 500ms
+			d.remove(); //removes it from array
+			});
+		};
+
+
 	tweetNumber.push(tweetReceived); //pushes tweet to array
 	tweetReceived.hide(); //hides from dom
  
  //3. Make the tweets occur so the most recent are at the top (check jquery documentation)
-$("#tweets").prepend(tweetReceived); //add it to the DOM, still invisible
+	$("#tweets").prepend(tweetReceived); //add it to the DOM, still invisible
+
+
 
 //4. Make the tweets slide down (store temporarily in a jquery object, then apply slidedown)
 
-tweetReceived.slideDown(); //make it appear by sliding it down
+	tweetReceived.slideDown(); //make it appear by sliding it down
 
 //Check to see if tweet has the word love
-//if(tweet.text.match(/(^|\s)"#term"($|\s)/)) {
-//if(tweet.text.match(/love/i) || (tweet.text.match(/hate/i))) {
-//	alert(tweet.text) ;
-//	term_count = term_count++;
-//	}
-
-
+if(tweet.text.match(/(^|\s)term($|\s)/)) {
+//if(tweet.text.match(/love/i) || (tweet.text.match(/hate/i))) {	
+//	alert("sup") ;
+	term_count = term_count++;
+	statCount = statCount++;
+	}
+	
+	statCount.push(tweetStats);
+	tweetStats.hide();
+	$("#searchedTerms").prepend(tweetStats);
+	tweetStats.slideDown() ;
 });
 
 s.start(); //start the spotter   
 }
-
-//$(document).ready(function() {
-//	main();
-//});

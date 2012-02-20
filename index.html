@@ -3,19 +3,21 @@
   <head>
     <!--- styles --->
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!--- libraries --->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
     <!--- program --->
     <script src="scripts/src/script.js"></script>
+	<script src="scripts/lib/spotter.js"></script>
 
   </head>
 
   <body id="mainBody">
+
     <br>
     <br>
     
@@ -26,26 +28,32 @@
 		</h1></br>
 		
 <div id="search_bar">
-    <input type="text" placeholder="Enter a search term" id="term" />
-    <button class="btn" id="search"> Search </button>
+	<div id="row">
+		<input type="text" placeholder="Enter a query for Twitter" id="term" />
+		<button class="btn primary" id="search"> Search </button>
+		<input type="text" placeholder="Enter what you are looking for in" id="term" />
+		<button class="btn danger" id="search"> Search </button>
+	<button class="btn" id="searchAgain" align="right"> Retry </button>
+    </div> 
+	 
+	
 	</div>
+	
         
     <div id="tweets">
+
     </div>
 	
 	</div>
 </div>
 
-    
-   
-    
     <div id="tweets">
       
      </div>
+	 <div id="searchedTerms">
 	 
-	 	<div align="right">
-	<button class="btn" id="searchAgain"> Retry </button>
-    </div>
+	 </div>
+	 
 	 
   </body>
 </html>
