@@ -1,19 +1,31 @@
-function main() {
+$(document).ready(function(){
+	$("#search").click(function(){
+	$("#search").fadeOut();
+	$("#search").fadeIn();
+
+main();
+});
+});
+
+
 
     //1. Create a spotter and get it to insert tweets into the DOM
 		$("#search").click(function() {
-			alert($("#term").val()) ;
+			$(#search").fadeOut() ;
+			$(#search_bar").fadeOut();
+			$("#tweets").fadeIn();
+			s.stop();
 		});
 	
 	
 	var s = new Spotter("twitter.search",
-		{q:#term, period:120},
+		{q:term, period:120},
 		{buffer:true, bufferTimeout:750}
 		); 
 	
 
 	
-	
+	var term = $("#term").val();
 	
 	var t_count = 0;
 	var count = 0;
@@ -71,6 +83,6 @@ if(tweet.text.match(/(^|\s)"#term"($|\s)/)) {
 s.start(); //start the spotter   
 }
 
-$(document).ready(function() {
-	main();
-});
+//$(document).ready(function() {
+//	main();
+//});

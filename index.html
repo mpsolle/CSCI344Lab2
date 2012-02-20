@@ -7,38 +7,42 @@
 
     <!--- libraries --->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="scripts/lib/spotter.js"></script>
-	<script src="bootstrap/js/boostrap.js"></script>
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
     <!--- program --->
     <script src="scripts/src/script.js"></script>
 
   </head>
 
-  <body>
-	<div id="container">
-		<div id="header">
-			<h1>Lab 3</h1>
-		</div>
-		<div id="search_bar">
-			<input type="text" placeholder="Enter a search term" id="term" />
-			<button id="search">Search</button>
-			</div>
+  <body id="mainBody">
+    <br>
+    <br>
+    
+<div class="container">
+	<div id="header">
+		<h1 id="title">
+			<br>Title</br>
+		</h1></br>
+		
+<div id="search_bar">
+    <input type="text" placeholder="Enter a search term" id="term" />
+    <button class="btn" id="search"> Search </button>
+    </div></br>
+        
+    <div id="tweets">
+    </div>
 	
-		<div class="row">
-			<div class="span3">
-				<div id="results">
-					<p>oh hai</p>
-				</div>
-			</div>
-			<div class="span9">
-				<div id="tweets">
-			</div>
-		</div>
 	</div>
-		
-		
-	</div>
+</div>
+
+    
+   
+    
+    <div id="tweets">
+      
+     </div>
+	 
   </body>
 </html>
 	

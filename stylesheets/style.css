@@ -14,11 +14,3 @@ p.backgroundColor2 {
 	border-style:solid;
 	border-width:1px;
 	}
-
-#tweets {
-	width:75%;
-}
-
-p.results {
-	width:25%;
-}
