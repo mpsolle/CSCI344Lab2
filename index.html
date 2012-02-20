@@ -3,22 +3,42 @@
   <head>
     <!--- styles --->
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!--- libraries --->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="scripts/lib/spotter.js"></script>
-
+	<script src="bootstrap/js/boostrap.js"></script>
+	
     <!--- program --->
     <script src="scripts/src/script.js"></script>
 
   </head>
 
   <body>
-    <h1>Lab 3</h1>
-	<div id="tweets">
+	<div id="container">
+		<div id="header">
+			<h1>Lab 3</h1>
+		</div>
+		<div id="search_bar">
+			<input type="text" placeholder="Enter a search term" id="term" />
+			<button id="search">Search</button>
+			</div>
 	
+		<div class="row">
+			<div class="span3">
+				<div id="results">
+					<p>oh hai</p>
+				</div>
+			</div>
+			<div class="span9">
+				<div id="tweets">
+			</div>
+		</div>
 	</div>
-	
+		
+		
+	</div>
   </body>
 </html>
 	

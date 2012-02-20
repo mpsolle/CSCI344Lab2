@@ -1,12 +1,21 @@
 function main() {
 
     //1. Create a spotter and get it to insert tweets into the DOM
+		$("#search").click(function() {
+			alert($("#term").val()) ;
+		});
+	
+	
 	var s = new Spotter("twitter.search",
-		{q:"npr", period:120},
+		{q:#term, period:120},
 		{buffer:true, bufferTimeout:750}
 		); 
+	
 
-
+	
+	
+	
+	var t_count = 0;
 	var count = 0;
 	var tweetNumber = [] ;
 
@@ -24,9 +33,9 @@ s.register(function(tweet){
 
 	//5. Alternate the colors or the background of the tweets (create a variable that changes the css class of the tweet based on the order that it's coming in)
 	if (count%2 === 0){
-		color="textColor";  //textColor is defined in the css file
+		color="backgroundColor";  //backgroundColor is defined in the css file
 	} else{
-		color="textColor2"; //textColor2 is defined in the css file
+		color="backgroundColor2"; //backgroundColor2 is defined in the css file
 	}
 
 	var tweetReceived = $("<p class = '"+color+"'>"+profile_image+"&nbsp;"+user_name+"&nbsp;"+day+"&nbsp"+time+"<br />"+tweet.text+"</p>");
@@ -49,10 +58,19 @@ $("#tweets").prepend(tweetReceived); //add it to the DOM, still invisible
 
 tweetReceived.slideDown(); //make it appear by sliding it down
 
+//Check to see if tweet has the word love
+if(tweet.text.match(/(^|\s)"#term"($|\s)/)) {
+//if(tweet.text.match(/love/i) || (tweet.text.match(/hate/i))) {
+	alert(tweet.text) ;
+	term_count = term_count++;
+	}
+
 
 });
 
 s.start(); //start the spotter   
 }
 
-main();
+$(document).ready(function() {
+	main();
+});
