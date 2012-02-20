@@ -1,31 +1,26 @@
 $(document).ready(function(){
 	$("#search").click(function(){
-	$("#search").fadeOut();
-	$("#search").fadeIn();
-
-main();
+		$("#search_bar").fadeOut();
+//		$("#tweets").fadeIn();
+	main();
+	});
 });
-});
 
+function main () {
 
 
     //1. Create a spotter and get it to insert tweets into the DOM
-		$("#search").click(function() {
-			$(#search").fadeOut() ;
-			$(#search_bar").fadeOut();
-			$("#tweets").fadeIn();
-			s.stop();
-		});
-	
-	
+	var term = $("#term").val();
 	var s = new Spotter("twitter.search",
 		{q:term, period:120},
 		{buffer:true, bufferTimeout:750}
 		); 
-	
-
-	
-	var term = $("#term").val();
+		
+//	$("#searchAgain").click(function(){
+//		$("#search_bar").fadeIn();
+//		$("#tweets").remove();
+//		s.stop();
+//	});
 	
 	var t_count = 0;
 	var count = 0;
@@ -71,11 +66,11 @@ $("#tweets").prepend(tweetReceived); //add it to the DOM, still invisible
 tweetReceived.slideDown(); //make it appear by sliding it down
 
 //Check to see if tweet has the word love
-if(tweet.text.match(/(^|\s)"#term"($|\s)/)) {
+//if(tweet.text.match(/(^|\s)"#term"($|\s)/)) {
 //if(tweet.text.match(/love/i) || (tweet.text.match(/hate/i))) {
-	alert(tweet.text) ;
-	term_count = term_count++;
-	}
+//	alert(tweet.text) ;
+//	term_count = term_count++;
+//	}
 
 
 });
