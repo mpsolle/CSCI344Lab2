@@ -14,3 +14,7 @@ p.backgroundColor2 {
 	border-style:solid;
 	border-width:1px;
 	}
+	
+p.tweets {
+	width:75%;
+	}
