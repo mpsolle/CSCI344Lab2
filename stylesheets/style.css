@@ -1,15 +1,15 @@
 #mainBody {
-    background:#C2BFBC;
+    background:#5C6263
 }
 
 p.backgroundColor{
-	background-color:#F0F8FF;
+	background-color:#778890;
 	border-style:solid;
 	border-width:1px;
 	}
 	
 p.backgroundColor2 {
-	background-color:#E0EEEE;
+	background-color:#A09F9B;
 	border-style:solid;
 	border-width:1px;
 	}
@@ -19,7 +19,7 @@ p.tweets {
 	}
 	
 #header {
-	background-color:#E0EEEE;
+	background-color:#C2BFBC;
 	border-style:solid;
 	border-width:1px;
 	}
@@ -29,13 +29,17 @@ p.tweets {
 	}
 	
 #searchedTerms {
-	font-family: 'Ubuntu', sans-serif;
-		border-style:solid;
+	border-style:solid;
 	border-width:1px;
+	text-align:center;
+	font-family: 'Ubuntu', sans-serif;
+	background-color:#DCD8D5
 }
 
 #searchedTerms2 {
-	font-family: 'Ubuntu', sans-serif;
-		border-style:solid;
+	border-style:solid;
+	font-family: 'Ubuntu', sans-serif;	
+	text-align:center;
 	border-width:1px;
+	background-color:#DCD8D5;
 }

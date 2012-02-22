@@ -3,14 +3,21 @@ $(document).ready(function(){
 	$("#searchAgain").hide();
 	$("#search").click(function(){
 		$("#result_bar").fadeIn();
+		$("#searchedTerms").fadeIn();
+		$("#searchedTerms2").fadeIn();
+
 		$("#search_bar").fadeOut();
-//		$("#tweets").fadeIn();
+		$("#tweets").fadeIn();
 		$("#searchAgain").fadeIn();
 	main();
 	});
 	$("#term").keyup(function(e) {
 		if(e.keyCode == "13") {
 			$("#result_bar").fadeIn();
+		$("#searchedTerms").fadeIn();
+		$("#searchedTerms2").fadeIn();
+
+			$("#tweets").fadeIn();
 			$("#search_bar").fadeOut();
 			$("#searchAgain").fadeIn();
 			main();
@@ -31,11 +38,11 @@ function main () {
 		
 	$("#searchAgain").click(function(){
 		$("#search_bar").fadeIn();
-		$("#tweets").remove();
-		$("#searchedTerms").remove();
-		$("#searchedTerms2").remove();
-		s.stop();
+		$("#tweets").fadeOut();
+		$("#searchedTerms").fadeOut();
+		$("#searchedTerms2").fadeOut();
 		$("#searchAgain").hide();
+		s.stop();
 	});
 	
 	var count = 0;
@@ -81,32 +88,28 @@ s.register(function(tweet){
 $("#tweets").prepend(tweetReceived); //add it to the DOM, still invisible
 //4. Make the tweets slide down (store temporarily in a jquery object, then apply slidedown)
 	
-	var results = $("<p> " + "Times love was tweeted with search: "+term_count_love+"</p>") ;
+	var results = $("<p> " + "Tweets with 'love': "+term_count_love+"</p>") ;
 			if (resultsNumberLove.length >= 1) { 
 			var q = resultsNumberLove.shift();  
-			q.fadeOut(500, function() {  
 			q.remove(); 
-			});
 		};
 		
 		resultsNumberLove.push(results);
 		results.hide();
 		$("#searchedTerms2").prepend(results);
-		results.slideDown();
+		results.show();
 
 		
-	var results2 = $("<p> " + "Times hate was tweeted with search: "+term_count_hate+"</p>") ;
+	var results2 = $("<p> " + "Tweets with 'hate': "+term_count_hate+"</p>") ;
 			if (resultsNumberHate.length >= 1) { 
 			var w = resultsNumberHate.shift();  
-			w.fadeOut(500, function() {  
 			w.remove(); 
-			});
 		};
 		
 		resultsNumberHate.push(results2);
 		results2.hide();
 		$("#searchedTerms").prepend(results2);
-		results2.slideDown();
+		results2.show();
 		
 		tweetReceived.slideDown(); 
 		
