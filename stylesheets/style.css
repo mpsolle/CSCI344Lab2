@@ -1,12 +1,11 @@
-body {
-    background: #eef;
+#mainBody {
+    background:#C2BFBC;
 }
 
 p.backgroundColor{
 	background-color:#F0F8FF;
 	border-style:solid;
 	border-width:1px;
-	
 	}
 	
 p.backgroundColor2 {
@@ -17,4 +16,14 @@ p.backgroundColor2 {
 	
 p.tweets {
 	width:75%;
+	}
+	
+#header {
+	background-color:#E0EEEE;
+	border-style:solid;
+	border-width:1px;
+	}
+	
+#title {
+	font-family: 'Ubuntu', sans-serif;
 	}

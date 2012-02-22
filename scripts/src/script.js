@@ -4,6 +4,13 @@ $(document).ready(function(){
 		$("#search_bar").fadeOut();
 //		$("#tweets").fadeIn();
 		$("#searchAgain").fadeIn();
+	$("#search").keyup(function(e) {
+		if(e.keyCode == "13") {
+		$("#search_bar").fadeOut();
+//		$("#tweets").fadeIn();
+		$("#searchAgain").fadeIn();
+			}
+			});
 	main();
 	});
 });
