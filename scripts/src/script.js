@@ -9,10 +9,11 @@ $(document).ready(function(){
 		$("#search_bar").fadeOut();
 //		$("#tweets").fadeIn();
 		$("#searchAgain").fadeIn();
+		main();
 			}
-			});
+		});
 	main();
-	});
+});
 });
 
 
@@ -29,12 +30,15 @@ function main () {
 	$("#searchAgain").click(function(){
 		$("#search_bar").fadeIn();
 		$("#tweets").remove();
+		$("#searchedTerms").remove();
 		s.stop();
 		$("#searchAgain").hide();
 	});
 	
 	var count = 0;
 	var tweetNumber = [] ;
+	var resultsNumber = [];
+	var term_count = 0;
 
 s.register(function(tweet){ 
 
@@ -48,7 +52,6 @@ s.register(function(tweet){
 	var color;
 	var t_count = 0;
 	count++;
-	var term_count = 0;
 	
 	//5. Alternate the colors or the background of the tweets (create a variable that changes the css class of the tweet based on the order that it's coming in)
 	if (count%2 === 0){
@@ -73,21 +76,25 @@ s.register(function(tweet){
 $("#tweets").prepend(tweetReceived); //add it to the DOM, still invisible
 //4. Make the tweets slide down (store temporarily in a jquery object, then apply slidedown)
 	
-	var results = $("<p> " + term_count + "</p>") ;
-	$("#searchedTerms").append(results);
-	t_count++;
-	if(t_count = 1) {
-		$("#searchedTerms").hide();
-		t_count--;
-	}
-
-tweetReceived.slideDown(); //make it appear by sliding it down
+	var results = $("<p> " + "Times love was tweeted with search: "+term_count+"</p>") ;
+			if (resultsNumber.length >= 1) { 
+			var q = resultsNumber.shift();  
+			q.fadeOut(500, function() {  
+			q.remove(); 
+			});
+		};
+		
+		resultsNumber.push(results);
+		results.hide();
+		$("#searchedTerms").prepend(results);
+		results.slideDown();
+		tweetReceived.slideDown(); //make it appear by sliding it down
 
 //Check to see if tweet has the word love
 //if(tweet.text.match(/(^|\s)"#term"($|\s)/)) {
 if(tweet.text.match(/love/i) || (tweet.text.match(/hate/i))) {
-//	alert(tweet.text) ;
-	term_count = term_count++;
+	term_count++;
+	alert(term_count);
 	}
 });
 
@@ -95,6 +102,3 @@ if(tweet.text.match(/love/i) || (tweet.text.match(/hate/i))) {
 s.start(); //start the spotter   
 }
 
-//$(document).ready(function() {
-//	main();
-//});
