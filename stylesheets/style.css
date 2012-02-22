@@ -27,3 +27,15 @@ p.tweets {
 #title {
 	font-family: 'Ubuntu', sans-serif;
 	}
+	
+#searchedTerms {
+	font-family: 'Ubuntu', sans-serif;
+		border-style:solid;
+	border-width:1px;
+}
+
+#searchedTerms2 {
+	font-family: 'Ubuntu', sans-serif;
+		border-style:solid;
+	border-width:1px;
+}

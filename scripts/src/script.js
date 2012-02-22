@@ -1,19 +1,21 @@
 $(document).ready(function(){
+	$("#result_bar").hide();
 	$("#searchAgain").hide();
 	$("#search").click(function(){
+		$("#result_bar").fadeIn();
 		$("#search_bar").fadeOut();
 //		$("#tweets").fadeIn();
 		$("#searchAgain").fadeIn();
-	$("#search").keyup(function(e) {
+	main();
+	});
+	$("#term").keyup(function(e) {
 		if(e.keyCode == "13") {
-		$("#search_bar").fadeOut();
-//		$("#tweets").fadeIn();
-		$("#searchAgain").fadeIn();
-		main();
+			$("#result_bar").fadeIn();
+			$("#search_bar").fadeOut();
+			$("#searchAgain").fadeIn();
+			main();
 			}
 		});
-	main();
-});
 });
 
 
@@ -31,14 +33,17 @@ function main () {
 		$("#search_bar").fadeIn();
 		$("#tweets").remove();
 		$("#searchedTerms").remove();
+		$("#searchedTerms2").remove();
 		s.stop();
 		$("#searchAgain").hide();
 	});
 	
 	var count = 0;
 	var tweetNumber = [] ;
-	var resultsNumber = [];
-	var term_count = 0;
+	var resultsNumberHate = [];
+	var resultsNumberLove = [];
+	var term_count_love = 0;
+	var term_count_hate = 0;
 
 s.register(function(tweet){ 
 
@@ -76,27 +81,45 @@ s.register(function(tweet){
 $("#tweets").prepend(tweetReceived); //add it to the DOM, still invisible
 //4. Make the tweets slide down (store temporarily in a jquery object, then apply slidedown)
 	
-	var results = $("<p> " + "Times love was tweeted with search: "+term_count+"</p>") ;
-			if (resultsNumber.length >= 1) { 
-			var q = resultsNumber.shift();  
+	var results = $("<p> " + "Times love was tweeted with search: "+term_count_love+"</p>") ;
+			if (resultsNumberLove.length >= 1) { 
+			var q = resultsNumberLove.shift();  
 			q.fadeOut(500, function() {  
 			q.remove(); 
 			});
 		};
 		
-		resultsNumber.push(results);
+		resultsNumberLove.push(results);
 		results.hide();
-		$("#searchedTerms").prepend(results);
+		$("#searchedTerms2").prepend(results);
 		results.slideDown();
-		tweetReceived.slideDown(); //make it appear by sliding it down
 
+		
+	var results2 = $("<p> " + "Times hate was tweeted with search: "+term_count_hate+"</p>") ;
+			if (resultsNumberHate.length >= 1) { 
+			var w = resultsNumberHate.shift();  
+			w.fadeOut(500, function() {  
+			w.remove(); 
+			});
+		};
+		
+		resultsNumberHate.push(results2);
+		results2.hide();
+		$("#searchedTerms").prepend(results2);
+		results2.slideDown();
+		
+		tweetReceived.slideDown(); 
+		
 //Check to see if tweet has the word love
 //if(tweet.text.match(/(^|\s)"#term"($|\s)/)) {
-if(tweet.text.match(/love/i) || (tweet.text.match(/hate/i))) {
-	term_count++;
-	alert(term_count);
+if(tweet.text.match(/love/i)) {
+	term_count_love++;
+//	alert(term_count);
+	} else if(tweet.text.match(/hate/i)) {
+	term_count_hate++;
 	}
 });
+	
 
 
 s.start(); //start the spotter   
