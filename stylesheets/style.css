@@ -4,6 +4,11 @@
 	font-family: 'Ubuntu', sans-serif;
 }
 
+#phrase {
+	font-weight:bold;
+	font-size:22px;
+}
+
 p.backgroundColor{
 	background-color:#778890;
 	border-style:solid;
