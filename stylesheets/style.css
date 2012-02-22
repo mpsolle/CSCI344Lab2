@@ -1,5 +1,6 @@
 #mainBody {
-    background:#5C6263
+    background:#5C6263;
+	text-align:center;
 }
 
 p.backgroundColor{
@@ -46,4 +47,8 @@ p.tweets {
 	text-align:center;
 	border-width:1px;
 	background-color:#DCD8D5;
+}
+
+#searchAgain {
+float:right;
 }
