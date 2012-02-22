@@ -1,6 +1,7 @@
 #mainBody {
     background:#5C6263;
 	text-align:center;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 p.backgroundColor{
@@ -16,8 +17,13 @@ p.backgroundColor2 {
 	}
 	
 p.backgroundColor3 {
-	background-color:#000000;
+	background-color:#FF1493;
 	}
+	
+p.backgroundColor4 {
+	background-color:#8B0000;
+	}
+	
 	
 p.tweets {
 	width:75%;
@@ -38,7 +44,7 @@ p.tweets {
 	border-width:1px;
 	text-align:center;
 	font-family: 'Ubuntu', sans-serif;
-	background-color:#DCD8D5
+	background-color:#DCD8D5;
 }
 
 #searchedTerms2 {

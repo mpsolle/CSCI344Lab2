@@ -91,8 +91,14 @@ s.register(function(tweet){
 	
 	
 	//Parses the tweet information from the Spotter
-	var tweetReceived = $("<p class = '"+color+"'>"+profile_image+"&nbsp;"+user_name+"&nbsp;"+day+"&nbsp"+time+"<br />"+tweet.text+"</p>");
-	
+	var tweetReceived = $("<p class = '"+color+"'>"+profile_image+"<br>"+"&nbsp;"+user_name+"&nbsp;"+day+"&nbsp"+time+"<br />"+tweet.text+"</p>");
+		if(tweet.text.match(/love/i)) {
+			color="backgroundColor3";
+			var tweetReceived = $("<p class = '"+color+"'>"+profile_image+"<br>"+"&nbsp;"+user_name+"&nbsp;"+day+"&nbsp"+time+"<br />"+tweet.text+"</p>");
+		} else if(tweet.text.match(/hate/i)) {
+			color="backgroundColor4";
+			var tweetReceived = $("<p class = '"+color+"'>"+profile_image+"<br>"+"&nbsp;"+user_name+"&nbsp;"+day+"&nbsp"+time+"<br />"+tweet.text+"</p>");
+			}
 	    
 		
 		//6. Show a maximum of 10 tweets at a time (remove old tweets from the dom) (easiest way is to use arrays to create a cycle)
